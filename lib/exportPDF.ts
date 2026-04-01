@@ -1,4 +1,5 @@
 import type { Cell } from './parseNotebook';
+import { getSource } from './parseNotebook';
 
 export function exportPDF(html: string, filename: string): void {
   const printWindow = window.open('', '_blank');
@@ -46,7 +47,6 @@ export function exportHTML(html: string, filename: string): void {
 }
 
 export function exportPython(cells: Cell[], filename: string): void {
-  const { getSource } = await import('./parseNotebook') as never;
   const lines: string[] = [];
 
   cells.forEach((cell, i) => {
