@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>test_notebook</title>
+  <style>
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+          line-height: 1.6;
+          color: #1a202c;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 2rem 1rem;
+          background: #fff;
+        }
+        .notebook-markdown-cell h1 { font-size: 2rem; font-weight: 700; margin: 1.5rem 0 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .notebook-markdown-cell h2 { font-size: 1.5rem; font-weight: 600; margin: 1.25rem 0 0.75rem; }
+        .notebook-markdown-cell h3 { font-size: 1.25rem; font-weight: 600; margin: 1rem 0 0.5rem; }
+        .notebook-markdown-cell p { margin: 0.75rem 0; }
+        .notebook-markdown-cell ul, .notebook-markdown-cell ol { padding-left: 1.5rem; margin: 0.75rem 0; }
+        .notebook-markdown-cell li { margin: 0.25rem 0; }
+        .notebook-markdown-cell code { background: #f1f5f9; padding: 0.125rem 0.375rem; border-radius: 3px; font-size: 0.875em; font-family: 'SFMono-Regular', Consolas, monospace; }
+        .notebook-markdown-cell pre { background: #f6f8fa; border: 1px solid #e2e8f0; border-radius: 6px; padding: 1rem; overflow-x: auto; }
+        .notebook-markdown-cell pre code { background: none; padding: 0; font-size: 0.875rem; }
+        .notebook-markdown-cell blockquote { border-left: 4px solid #3b82f6; padding-left: 1rem; color: #6b7280; margin: 1rem 0; }
+        .notebook-markdown-cell table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+        .notebook-markdown-cell th, .notebook-markdown-cell td { border: 1px solid #e2e8f0; padding: 0.5rem 0.75rem; text-align: left; }
+        .notebook-markdown-cell th { background: #f8fafc; font-weight: 600; }
+        .notebook-markdown-cell tr:nth-child(even) { background: #f8fafc; }
+        .notebook-markdown-cell a { color: #2563eb; text-decoration: underline; }
+        .notebook-markdown-cell img { max-width: 100%; height: auto; border-radius: 4px; }
+        .notebook-output { margin: 0.5rem 0; overflow-x: auto; }
+        .notebook-output img { max-width: 100%; height: auto; }
+        .notebook-output table { border-collapse: collapse; font-size: 0.875rem; }
+        .notebook-output th, .notebook-output td { border: 1px solid #e2e8f0; padding: 0.375rem 0.625rem; }
+        .notebook-output th { background: #f8fafc; }
+        .notebook-error { background: #fff5f5; border-left: 4px solid #fc8181; padding: 0.75rem; font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.8125rem; white-space: pre-wrap; overflow-x: auto; border-radius: 0 4px 4px 0; color: #c53030; }
+        .notebook-stream { background: #f7fafc; border-left: 4px solid #a0aec0; padding: 0.75rem; font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.8125rem; white-space: pre-wrap; overflow-x: auto; border-radius: 0 4px 4px 0; }
+        .notebook-stderr { background: #fffbeb; border-left-color: #f59e0b; }
+        @media print {
+          body { max-width: 100%; padding: 0; }
+          pre { white-space: pre-wrap; word-break: break-all; }
+        }
+      </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" />
+  <script>
+        window.MathJax = {
+          tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+          svg: { fontCache: 'global' }
+        };
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+  <div id="notebook">
+    <div class="notebook-cell notebook-markdown-cell" style="margin-bottom:1.5rem;padding:0 0.5rem;"><h1>Test Notebook</h1>
+<p>This notebook tests <strong>all output types</strong>:</p>
+<ul>
+<li>Code with syntax highlighting</li>
+<li>DataFrame output</li>
+<li>Matplotlib chart</li>
+<li>Math equations: $E = mc^2$</li>
+<li>Error traceback</li>
+<li>stdout stream</li>
+</ul>
+</div>
+
+<div class="notebook-cell notebook-code-cell" style="margin-bottom:1.5rem;">
+  <div style="display:flex;align-items:flex-start;gap:0.5rem;">
+    <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:1rem;min-width:2.5rem;text-align:right;user-select:none;">In [1]:</span>
+    <pre style="flex:1;margin:0;"><code class="hljs language-python" style="border-radius:6px;padding:1rem;display:block;overflow-x:auto;background:#f6f8fa;font-size:0.875rem;"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+df = pd.DataFrame({<span class="hljs-string">&#x27;A&#x27;</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-string">&#x27;B&#x27;</span>: [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]})
+df</code></pre>
+  </div>
+</div><div style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.25rem;">
+                <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:0.5rem;min-width:2.5rem;text-align:right;user-select:none;">Out:</span>
+                <div style="flex:1;"><div class="notebook-output"><div>
+<table border="1">
+<thead><tr><th></th><th>A</th><th>B</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>1</td><td>4</td></tr>
+<tr><td>1</td><td>2</td><td>5</td></tr>
+<tr><td>2</td><td>3</td><td>6</td></tr>
+</tbody>
+</table>
+</div></div></div>
+              </div>
+
+<div class="notebook-cell notebook-code-cell" style="margin-bottom:1.5rem;">
+  <div style="display:flex;align-items:flex-start;gap:0.5rem;">
+    <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:1rem;min-width:2.5rem;text-align:right;user-select:none;">In [2]:</span>
+    <pre style="flex:1;margin:0;"><code class="hljs language-python" style="border-radius:6px;padding:1rem;display:block;overflow-x:auto;background:#f6f8fa;font-size:0.875rem;"><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Hello from stdout&#x27;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Line 2&#x27;</span>)</code></pre>
+  </div>
+</div><div style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.25rem;">
+                <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:0.5rem;min-width:2.5rem;text-align:right;user-select:none;">Out:</span>
+                <div style="flex:1;"><div class="notebook-output"><pre class="notebook-stream">Hello from stdout
+Line 2
+</pre></div></div>
+              </div>
+
+<div class="notebook-cell notebook-code-cell" style="margin-bottom:1.5rem;">
+  <div style="display:flex;align-items:flex-start;gap:0.5rem;">
+    <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:1rem;min-width:2.5rem;text-align:right;user-select:none;">In [3]:</span>
+    <pre style="flex:1;margin:0;"><code class="hljs language-python" style="border-radius:6px;padding:1rem;display:block;overflow-x:auto;background:#f6f8fa;font-size:0.875rem;"><span class="hljs-keyword">import</span> base64
+<span class="hljs-comment"># Minimal 1x1 red PNG as base64</span>
+png_b64 = <span class="hljs-string">&#x27;iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI6QAAAABJRU5ErkJggg==&#x27;</span></code></pre>
+  </div>
+</div><div style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.25rem;">
+                <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:0.5rem;min-width:2.5rem;text-align:right;user-select:none;">Out:</span>
+                <div style="flex:1;"><div class="notebook-output"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI6QAAAABJRU5ErkJggg==" alt="output" style="max-width:100%;height:auto;" /></div></div>
+              </div>
+
+<div class="notebook-cell notebook-code-cell" style="margin-bottom:1.5rem;">
+  <div style="display:flex;align-items:flex-start;gap:0.5rem;">
+    <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:1rem;min-width:2.5rem;text-align:right;user-select:none;">In [4]:</span>
+    <pre style="flex:1;margin:0;"><code class="hljs language-python" style="border-radius:6px;padding:1rem;display:block;overflow-x:auto;background:#f6f8fa;font-size:0.875rem;"><span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&#x27;test error&#x27;</span>)</code></pre>
+  </div>
+</div><div style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.25rem;">
+                <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:0.5rem;min-width:2.5rem;text-align:right;user-select:none;">Out:</span>
+                <div style="flex:1;"><div class="notebook-output"><pre class="notebook-error">---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+&lt;ipython-input-4&gt; in &lt;module&gt;
+ValueError: test error</pre></div></div>
+              </div>
+<div class="notebook-cell notebook-markdown-cell" style="margin-bottom:1.5rem;padding:0 0.5rem;"><h2>Math</h2>
+<p>Inline: $\alpha + \beta = \gamma$</p>
+<p>Block:
+$$\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}$$</p>
+</div>
+  </div>
+</body>
+</html>

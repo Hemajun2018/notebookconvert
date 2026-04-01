@@ -1,0 +1,100 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - heading "Test Notebook" [level=1] [ref=e4]
+    - paragraph [ref=e5]:
+      - text: This notebook tests
+      - strong [ref=e6]: all output types
+      - text: ":"
+    - list [ref=e7]:
+      - listitem [ref=e8]: Code with syntax highlighting
+      - listitem [ref=e9]: DataFrame output
+      - listitem [ref=e10]: Matplotlib chart
+      - listitem [ref=e11]:
+        - text: "Math equations:"
+        - generic [ref=e12]:
+          - img [ref=e13]
+          - math [ref=e28]:
+            - generic [ref=e29]: E
+            - generic [ref=e30]: =
+            - generic [ref=e31]: m
+            - generic [ref=e32]:
+              - generic [ref=e33]: c
+              - generic [ref=e34]: "2"
+      - listitem [ref=e35]: Error traceback
+      - listitem [ref=e36]: stdout stream
+  - generic [ref=e38]:
+    - generic [ref=e39]: "In [1]:"
+    - code [ref=e41]: "import pandas as pd import numpy as np df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]}) df"
+  - generic [ref=e42]:
+    - generic [ref=e43]: "Out:"
+    - table [ref=e47]:
+      - rowgroup [ref=e48]:
+        - row "A B" [ref=e49]:
+          - columnheader [ref=e50]
+          - columnheader "A" [ref=e51]
+          - columnheader "B" [ref=e52]
+      - rowgroup [ref=e53]:
+        - row "0 1 4" [ref=e54]:
+          - cell "0" [ref=e55]
+          - cell "1" [ref=e56]
+          - cell "4" [ref=e57]
+        - row "1 2 5" [ref=e58]:
+          - cell "1" [ref=e59]
+          - cell "2" [ref=e60]
+          - cell "5" [ref=e61]
+        - row "2 3 6" [ref=e62]:
+          - cell "2" [ref=e63]
+          - cell "3" [ref=e64]
+          - cell "6" [ref=e65]
+  - generic [ref=e67]:
+    - generic [ref=e68]: "In [2]:"
+    - code [ref=e70]: print('Hello from stdout') print('Line 2')
+  - generic [ref=e71]:
+    - generic [ref=e72]: "Out:"
+    - generic [ref=e75]: Hello from stdout Line 2
+  - generic [ref=e77]:
+    - generic [ref=e78]: "In [3]:"
+    - code [ref=e80]: "import base64 # Minimal 1x1 red PNG as base64 png_b64 = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI6QAAAABJRU5ErkJggg=='"
+  - generic [ref=e81]:
+    - generic [ref=e82]: "Out:"
+    - img "output" [ref=e85]
+  - generic [ref=e87]:
+    - generic [ref=e88]: "In [4]:"
+    - code [ref=e90]: raise ValueError('test error')
+  - generic [ref=e91]:
+    - generic [ref=e92]: "Out:"
+    - generic [ref=e95]: "--------------------------------------------------------------------------- ValueError Traceback (most recent call last) <ipython-input-4> in <module> ValueError: test error"
+  - generic [ref=e96]:
+    - heading "Math" [level=2] [ref=e97]
+    - paragraph [ref=e98]:
+      - text: "Inline:"
+      - generic [ref=e99]:
+        - img [ref=e100]
+        - math [ref=e114]:
+          - generic [ref=e115]: α
+          - generic [ref=e116]: +
+          - generic [ref=e117]: β
+          - generic [ref=e118]: =
+          - generic [ref=e119]: γ
+    - paragraph [ref=e120]:
+      - text: "Block:"
+      - generic [ref=e121]:
+        - img [ref=e122]
+        - math [ref=e161]:
+          - generic [ref=e162]:
+            - generic [ref=e163]: ∫
+            - generic [ref=e164]: "0"
+            - generic [ref=e165]: ∞
+          - generic [ref=e166]:
+            - generic [ref=e167]: e
+            - generic [ref=e168]:
+              - generic [ref=e169]: −
+              - generic [ref=e170]:
+                - generic [ref=e171]: x
+                - generic [ref=e172]: "2"
+          - generic [ref=e173]: d
+          - generic [ref=e174]: x
+          - generic [ref=e175]: =
+          - generic [ref=e176]:
+            - generic [ref=e178]: π
+            - generic [ref=e179]: "2"
