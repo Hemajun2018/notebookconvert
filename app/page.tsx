@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import Converter from '@/components/Converter';
 import TrustBadges from '@/components/TrustBadges';
 import FAQSection, { type FAQItem } from '@/components/FAQSection';
+import FeaturedBadges from '@/components/FeaturedBadges';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -63,17 +64,58 @@ export default function HomePage() {
     <>
       <Header />
       <main>
-        {/* Hero */}
-        <section className="bg-gradient-to-b from-blue-50 to-white py-14 px-4 sm:px-6 text-center">
-          <div className="max-w-3xl mx-auto">
-            <p className="inline-block text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-100 rounded-full px-3 py-1 mb-4">
+
+        {/* ─── Hero ─── */}
+        <section className="relative overflow-hidden bg-ink-950 py-16 sm:py-24 px-4">
+          {/* Dot grid */}
+          <div
+            className="absolute inset-0 opacity-40"
+            aria-hidden="true"
+            style={{
+              backgroundImage: 'radial-gradient(circle, #222838 1px, transparent 1px)',
+              backgroundSize: '28px 28px',
+            }}
+          />
+          {/* Teal radial glow */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            aria-hidden="true"
+            style={{
+              background: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,217,180,0.08) 0%, transparent 70%)',
+            }}
+          />
+
+          <div className="relative max-w-3xl mx-auto text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-jade bg-jade-50 border border-jade/20 rounded-full px-3 py-1.5 mb-10">
+              <span className="w-1.5 h-1.5 bg-jade rounded-full animate-glow-pulse" aria-hidden="true" />
               100% Free · No Upload · No LaTeX
-            </p>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-              Free IPYNB to PDF Converter Online<br className="hidden sm:block" />
-              <span className="text-blue-600"> No LaTeX Required</span>
+            </div>
+
+            {/* Heading */}
+            <h1 className="mb-4 leading-none tracking-tight">
+              <span className="block font-display italic text-cream text-5xl sm:text-6xl lg:text-7xl">
+                Convert
+              </span>
+              <span className="block font-display text-cream text-5xl sm:text-6xl lg:text-7xl mt-1">
+                Notebooks.
+              </span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+
+            {/* Terminal hint */}
+            <p className="font-mono text-xs text-cream-100 mb-4" aria-hidden="true">
+              <span className="text-jade">$</span>{' '}
+              <span className="text-cream-200">ipynb</span>{' '}
+              <span className="text-ink-600">→</span>{' '}
+              <span className="text-amber-400">pdf</span>{' '}
+              <span className="text-ink-600">|</span>{' '}
+              <span className="text-amber-400">html</span>{' '}
+              <span className="text-ink-600">|</span>{' '}
+              <span className="text-amber-400">py</span>
+              <span className="animate-cursor-blink text-jade ml-0.5">_</span>
+            </p>
+
+            <p className="text-cream-200 text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
               Convert Jupyter Notebook files to PDF, HTML, or Python directly in your browser.
               No installation. No server. Your files stay private.
             </p>
@@ -84,86 +126,128 @@ export default function HomePage() {
         </section>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
+
           {/* Trust badges */}
           <TrustBadges />
 
           {/* Features */}
           <section aria-labelledby="features-heading" className="py-12">
-            <h2 id="features-heading" className="text-2xl font-bold text-gray-900 text-center mb-10">
+            <h2 id="features-heading" className="font-display text-2xl text-cream text-center mb-10">
               Why use notebookconvert.com?
             </h2>
-            <div className="grid sm:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-3 gap-5">
               {[
                 {
                   icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+                  tag: '01',
                   title: 'No LaTeX Installation',
                   desc: 'Traditional nbconvert PDF export requires a full LaTeX distribution. We use browser printing — zero dependencies.',
                 },
                 {
                   icon: 'M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88',
+                  tag: '02',
                   title: 'Complete Privacy',
                   desc: 'Conversion happens entirely client-side. We never see your code, data, or outputs. No analytics on your files.',
                 },
                 {
                   icon: 'M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z',
+                  tag: '03',
                   title: 'All Output Types',
                   desc: 'Preserves matplotlib plots, pandas DataFrames, HTML output, stdout/stderr streams, error tracebacks, and equations.',
                 },
               ].map(f => (
-                <div key={f.title} className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d={f.icon} />
-                    </svg>
+                <div
+                  key={f.title}
+                  className="bg-ink-900 rounded-xl border border-ink-700 p-6 hover:border-jade/30 transition-colors group"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-9 h-9 bg-jade-50 border border-jade/20 rounded-lg flex items-center justify-center">
+                      <svg
+                        className="w-4.5 h-4.5 text-jade"
+                        style={{ width: '1.125rem', height: '1.125rem' }}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d={f.icon} />
+                      </svg>
+                    </div>
+                    <span className="font-mono text-xs text-cream-100">{f.tag}</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{f.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{f.desc}</p>
+                  <h3 className="font-semibold text-cream text-sm mb-2">{f.title}</h3>
+                  <p className="text-sm text-cream-200 leading-relaxed">{f.desc}</p>
                 </div>
               ))}
             </div>
           </section>
 
           {/* How it works */}
-          <section aria-labelledby="how-heading" className="py-12 bg-gray-50 rounded-2xl px-6 sm:px-10">
-            <h2 id="how-heading" className="text-2xl font-bold text-gray-900 text-center mb-10">
-              How it works
-            </h2>
-            <div className="grid sm:grid-cols-3 gap-8 relative">
-              {[
-                { step: '1', title: 'Upload your notebook', desc: 'Drag and drop your .ipynb file or click to browse. Works with any Jupyter notebook in nbformat 4.' },
-                { step: '2', title: 'Choose your format', desc: 'Select PDF for printing, HTML for sharing, or Python to extract code cells.' },
-                { step: '3', title: 'Download instantly', desc: 'For PDF, a print dialog opens. Select "Save as PDF". For HTML and Python, the file downloads automatically.' },
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-600 text-white font-bold text-xl flex items-center justify-center mb-4 shadow-md">
-                    {item.step}
+          <section aria-labelledby="how-heading" className="py-12">
+            <div className="bg-ink-900 rounded-2xl border border-ink-700 px-6 sm:px-10 py-10">
+              <h2 id="how-heading" className="font-display text-2xl text-cream text-center mb-10">
+                How it works
+              </h2>
+              <div className="grid sm:grid-cols-3 gap-8">
+                {[
+                  {
+                    step: '01',
+                    title: 'Upload your notebook',
+                    desc: 'Drag and drop your .ipynb file or click to browse. Works with any Jupyter notebook in nbformat 4.',
+                  },
+                  {
+                    step: '02',
+                    title: 'Choose your format',
+                    desc: 'Select PDF for printing, HTML for sharing, or Python to extract code cells.',
+                  },
+                  {
+                    step: '03',
+                    title: 'Download instantly',
+                    desc: 'For PDF, a print dialog opens — select "Save as PDF". For HTML and Python, the file downloads automatically.',
+                  },
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col">
+                    <div className="font-mono text-3xl font-bold text-jade/30 mb-3 leading-none">
+                      {item.step}
+                    </div>
+                    <h3 className="font-semibold text-cream text-sm mb-2">{item.title}</h3>
+                    <p className="text-sm text-cream-200 leading-relaxed">{item.desc}</p>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </section>
 
-          {/* SEO content */}
-          <section className="py-12 prose prose-gray max-w-none">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Convert Jupyter Notebooks to PDF Without LaTeX</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
+          {/* SEO prose */}
+          <section className="py-12 max-w-none">
+            <h2 className="font-display text-2xl text-cream mb-5">
+              Convert Jupyter Notebooks to PDF Without LaTeX
+            </h2>
+            <p className="text-cream-200 leading-relaxed mb-4">
               The standard way to export a Jupyter Notebook to PDF is{' '}
-              <code className="bg-gray-100 px-1 rounded text-sm">jupyter nbconvert --to pdf</code>, which requires a
-              full LaTeX installation (typically TeXLive or MiKTeX — several gigabytes). For many data scientists and
-              researchers, this is a significant barrier. If you&apos;ve seen errors like{' '}
-              <code className="bg-gray-100 px-1 rounded text-sm">xelatex not found</code> or{' '}
-              <code className="bg-gray-100 px-1 rounded text-sm">pdflatex failed</code>, you&apos;re not alone.
+              <code className="font-mono bg-ink-800 px-1.5 py-0.5 rounded text-jade text-sm border border-ink-700">
+                jupyter nbconvert --to pdf
+              </code>
+              , which requires a full LaTeX installation (typically TeXLive or MiKTeX — several gigabytes). For many data
+              scientists and researchers, this is a significant barrier. If you&apos;ve seen errors like{' '}
+              <code className="font-mono bg-ink-800 px-1.5 py-0.5 rounded text-amber-400 text-sm border border-ink-700">
+                xelatex not found
+              </code>{' '}
+              or{' '}
+              <code className="font-mono bg-ink-800 px-1.5 py-0.5 rounded text-amber-400 text-sm border border-ink-700">
+                pdflatex failed
+              </code>
+              , you&apos;re not alone.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <p className="text-cream-200 leading-relaxed mb-4">
               notebookconvert.com takes a different approach: it parses your .ipynb file directly in the browser,
               renders all cells (code, markdown, outputs, charts) to HTML, and opens the browser&apos;s native print dialog.
               Modern browsers can save any page as a high-quality PDF — no LaTeX required. The result is a clean,
               readable PDF that preserves your code syntax highlighting, matplotlib figures, pandas DataFrames, and
               LaTeX equations (via MathJax).
             </p>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-cream-200 leading-relaxed">
               Because everything runs client-side, your notebooks are completely private. There&apos;s no server, no
               upload, and no account required. The tool is completely free with no usage limits.
             </p>
@@ -171,16 +255,22 @@ export default function HomePage() {
 
           {/* Comparison table */}
           <section aria-labelledby="comparison-heading" className="py-12">
-            <h2 id="comparison-heading" className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Comparison: nbconvert vs notebookconvert.com
+            <h2 id="comparison-heading" className="font-display text-2xl text-cream mb-8 text-center">
+              nbconvert vs notebookconvert.com
             </h2>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto rounded-xl border border-ink-700">
               <table className="w-full border-collapse text-sm">
                 <thead>
-                  <tr className="bg-gray-50">
-                    <th className="border border-gray-200 px-4 py-3 text-left font-semibold text-gray-700">Feature</th>
-                    <th className="border border-gray-200 px-4 py-3 text-center font-semibold text-gray-700">nbconvert (LaTeX)</th>
-                    <th className="border border-gray-200 px-4 py-3 text-center font-semibold text-blue-700 bg-blue-50">notebookconvert.com</th>
+                  <tr className="bg-ink-800">
+                    <th className="border-b border-ink-700 px-5 py-3.5 text-left font-mono text-xs text-cream-200 uppercase tracking-wider">
+                      Feature
+                    </th>
+                    <th className="border-b border-ink-700 px-5 py-3.5 text-center font-mono text-xs text-cream-200 uppercase tracking-wider">
+                      nbconvert (LaTeX)
+                    </th>
+                    <th className="border-b border-jade/30 px-5 py-3.5 text-center font-mono text-xs text-jade uppercase tracking-wider bg-jade-50">
+                      notebookconvert.com
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -195,10 +285,10 @@ export default function HomePage() {
                     ['Cost', 'Free', 'Free'],
                     ['Speed', 'Slow (LaTeX compile)', 'Fast (browser render)'],
                   ].map(([feature, nbconvert, ours], i) => (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="border border-gray-200 px-4 py-3 font-medium text-gray-700">{feature}</td>
-                      <td className="border border-gray-200 px-4 py-3 text-center text-gray-500">{nbconvert}</td>
-                      <td className="border border-gray-200 px-4 py-3 text-center text-blue-700 font-medium bg-blue-50">{ours}</td>
+                    <tr key={i} className={i % 2 === 0 ? 'bg-ink-900' : 'bg-ink-950/50'}>
+                      <td className="border-b border-ink-700/50 px-5 py-3 text-cream-200 font-medium">{feature}</td>
+                      <td className="border-b border-ink-700/50 px-5 py-3 text-center text-cream-100">{nbconvert}</td>
+                      <td className="border-b border-jade/10 px-5 py-3 text-center text-jade font-mono text-xs bg-jade-50">{ours}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -210,11 +300,11 @@ export default function HomePage() {
           <FAQSection questions={faqs} />
 
           {/* Related tools */}
-          <section aria-labelledby="related-heading" className="py-10 border-t border-gray-200">
-            <h2 id="related-heading" className="text-xl font-bold text-gray-900 mb-6 text-center">
+          <section aria-labelledby="related-heading" className="py-10 border-t border-ink-700">
+            <h2 id="related-heading" className="font-display text-xl text-cream mb-6 text-center">
               Related Tools
             </h2>
-            <div className="grid sm:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-3 gap-3">
               {[
                 { href: '/jupyter-to-pdf', label: 'Jupyter Notebook to PDF', desc: 'Convert .ipynb to PDF online' },
                 { href: '/ipynb-to-html', label: 'IPYNB to HTML', desc: 'Export notebook as standalone HTML' },
@@ -223,14 +313,20 @@ export default function HomePage() {
                 <Link
                   key={tool.href}
                   href={tool.href}
-                  className="block p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all group"
+                  className="block p-4 rounded-xl border border-ink-700 hover:border-jade/40 hover:bg-jade-50 transition-all group"
                 >
-                  <p className="font-semibold text-gray-800 group-hover:text-blue-700 text-sm">{tool.label}</p>
-                  <p className="text-xs text-gray-500 mt-1">{tool.desc}</p>
+                  <p className="font-mono font-medium text-cream-200 group-hover:text-jade text-xs transition-colors">
+                    {tool.label}
+                  </p>
+                  <p className="text-xs text-cream-100 mt-1">{tool.desc}</p>
                 </Link>
               ))}
             </div>
           </section>
+
+          {/* Featured on */}
+          <FeaturedBadges />
+
         </div>
       </main>
       <Footer />
