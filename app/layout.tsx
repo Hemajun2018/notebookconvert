@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
+
+export const viewport = {
+  themeColor: '#2563eb',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://notebookconvert.com'),
@@ -35,27 +42,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {process.env.NODE_ENV === 'production' && (
-          <>
-            <script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=G-BJXB3HGGY0"
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', 'G-BJXB3HGGY0');
-                `,
-              }}
-            />
-          </>
-        )}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className="min-h-screen bg-white text-gray-900 antialiased">
         {children}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-BJXB3HGGY0"
+              strategy="lazyOnload"
+            />
+            <Script id="ga-init" strategy="lazyOnload">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJXB3HGGY0');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
