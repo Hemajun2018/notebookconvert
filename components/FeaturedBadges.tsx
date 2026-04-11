@@ -10,7 +10,7 @@ const badges = [
 
 export default function FeaturedBadges() {
   return (
-    <section aria-label="Featured on" className="py-8 border-t border-ink-700">
+    <section aria-label="Featured on" className="py-8 border-t border-ink-200">
       <p className="text-xs font-mono text-ink-500 text-center mb-4 uppercase tracking-widest">
         Featured on
       </p>

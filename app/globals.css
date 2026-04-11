@@ -48,7 +48,7 @@
   }
 }
 
-/* Notebook output styles */
+/* Notebook output styles (used inside generated HTML preview/export) */
 .notebook-output {
   margin: 0.5rem 0;
   overflow-x: auto;
@@ -63,7 +63,7 @@
   background: #fff0f0;
   border-left: 4px solid #e53e3e;
   padding: 0.5rem;
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.875rem;
   white-space: pre-wrap;
   overflow-x: auto;
@@ -73,7 +73,7 @@
   background: #f7f7f7;
   border-left: 4px solid #aaa;
   padding: 0.5rem;
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.875rem;
   white-space: pre-wrap;
   overflow-x: auto;
@@ -84,11 +84,23 @@
   border-left: 4px solid #f59e0b;
 }
 
-/* Highlighted code block styles */
+/* Highlighted code block styles (inside generated notebook output) */
 .hljs {
   background: #f6f8fa !important;
   border-radius: 6px;
   padding: 1rem !important;
   font-size: 0.875rem;
+  overflow-x: auto;
+}
+
+/* Dark code block for SEO prose (GitHub-on-light style) */
+.code-block {
+  background: #0F172A;
+  color: #E2E8F0;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.6;
   overflow-x: auto;
 }
