@@ -13,7 +13,19 @@ export default function ConvertButton({
   loading,
   label = 'Convert',
 }: ConvertButtonProps) {
-  const isIdle = !disabled && !loading;
+  // 3 visual states:
+  //   loading  → accent bg + white spinner/text (active-looking, no hover)
+  //   disabled → ink bg + ink-400 text (clearly inactive)
+  //   idle     → accent bg + white text + hover
+  const isDisabledOnly = disabled && !loading;
+  let stateClasses: string;
+  if (loading) {
+    stateClasses = 'bg-accent-600 text-white cursor-wait';
+  } else if (isDisabledOnly) {
+    stateClasses = 'bg-ink-200 text-ink-400 cursor-not-allowed';
+  } else {
+    stateClasses = 'bg-accent-600 text-white hover:bg-accent-700 shadow-sm';
+  }
   return (
     <button
       type="button"
@@ -22,17 +34,15 @@ export default function ConvertButton({
       aria-busy={loading}
       className={[
         'w-full flex items-center justify-center gap-2',
-        'px-6 py-3.5 rounded-xl font-semibold text-white text-base',
+        'px-6 py-3.5 rounded-xl font-semibold text-base',
         'transition-colors duration-150',
-        isIdle
-          ? 'bg-accent-600 hover:bg-accent-700 shadow-sm'
-          : 'bg-ink-200 text-ink-400 cursor-not-allowed',
+        stateClasses,
       ].join(' ')}
     >
       {loading ? (
         <>
           <svg
-            className="animate-spin w-5 h-5 text-ink-400"
+            className="animate-spin w-5 h-5"
             fill="none"
             viewBox="0 0 24 24"
             aria-hidden="true"
