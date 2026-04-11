@@ -45,8 +45,8 @@ export default function BlogPage() {
     <>
       <Header />
       <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Blog</h1>
-        <p className="text-gray-600 mb-10">
+        <h1 className="font-semibold text-3xl text-ink-900 mb-2">Blog</h1>
+        <p className="text-ink-500 mb-10">
           Guides, tips, and tutorials for working with Jupyter Notebooks.
         </p>
 
@@ -54,30 +54,37 @@ export default function BlogPage() {
           {posts.map(post => (
             <article
               key={post.slug}
-              className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-md transition-shadow"
+              className="bg-white rounded-xl border border-ink-200 p-6 hover:border-accent-200 hover:shadow-cell transition-all"
             >
-              <time className="text-xs text-gray-400 uppercase tracking-wide font-medium">
+              <time className="font-mono text-xs text-ink-500 uppercase tracking-wide">
                 {new Date(post.date).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
                 })}
               </time>
-              <h2 className="text-xl font-bold text-gray-900 mt-2 mb-2">
+              <h2 className="text-xl font-semibold text-ink-900 mt-2 mb-2">
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="hover:text-blue-600 transition-colors"
+                  className="hover:text-accent-600 transition-colors"
                 >
                   {post.title}
                 </Link>
               </h2>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">{post.description}</p>
+              <p className="text-ink-500 text-sm leading-relaxed mb-4">{post.description}</p>
               <Link
                 href={`/blog/${post.slug}`}
-                className="text-sm font-medium text-blue-600 hover:text-blue-700 inline-flex items-center gap-1"
+                className="text-sm font-medium text-accent-600 hover:text-accent-700 inline-flex items-center gap-1"
               >
                 Read more
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </Link>

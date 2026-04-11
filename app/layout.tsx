@@ -3,7 +3,7 @@ import Script from 'next/script';
 import './globals.css';
 
 export const viewport = {
-  themeColor: '#2563eb',
+  themeColor: '#F37626',
   width: 'device-width',
   initialScale: 1,
 };
@@ -34,6 +34,31 @@ export const metadata: Metadata = {
   },
 };
 
+const webAppSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'notebookconvert.com',
+  url: 'https://notebookconvert.com',
+  description:
+    'Free online Jupyter Notebook (.ipynb) converter. Convert notebooks to PDF, HTML, or Python directly in your browser. No LaTeX, no upload, 100% private.',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Any',
+  browserRequirements: 'Requires a modern web browser with JavaScript enabled.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  featureList: [
+    'Convert IPYNB to PDF',
+    'Convert IPYNB to HTML',
+    'Convert IPYNB to Python (.py)',
+    'No LaTeX installation required',
+    '100% client-side conversion',
+    'Preserves code highlighting, charts, DataFrames, and math equations',
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -44,8 +69,12 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+        />
       </head>
-      <body className="min-h-screen bg-white text-gray-900 antialiased">
+      <body className="min-h-screen bg-ink-50 text-ink-900 font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && (
           <>

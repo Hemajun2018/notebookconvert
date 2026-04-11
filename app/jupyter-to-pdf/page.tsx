@@ -48,22 +48,34 @@ const faqs: FAQItem[] = [
   },
 ];
 
+const preservedItems = [
+  'Code cells with syntax highlighting',
+  'Markdown cells with formatted text',
+  'matplotlib and seaborn charts (PNG/SVG)',
+  'pandas DataFrames as HTML tables',
+  'LaTeX math equations (via MathJax)',
+  'stdout/stderr output streams',
+  'Error tracebacks',
+  'Raw cell content',
+];
+
 export default function JupyterToPdfPage() {
   return (
     <>
       <Header />
       <main>
         {/* Hero */}
-        <section className="bg-gradient-to-b from-blue-50 to-white py-14 px-4 sm:px-6 text-center">
-          <div className="max-w-3xl mx-auto">
-            <p className="inline-block text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-100 rounded-full px-3 py-1 mb-4">
+        <section className="relative overflow-hidden bg-gradient-to-b from-accent-50 via-white to-white border-b border-ink-200">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 sm:py-20 text-center">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-700 bg-accent-100 border border-accent-200 rounded-full px-3 py-1.5 mb-6">
+              <span className="w-1.5 h-1.5 bg-accent-500 rounded-full" aria-hidden="true" />
               No LaTeX · No Upload · Instant
-            </p>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-              Convert Jupyter Notebook to PDF Online
-              <span className="text-blue-600"> Free, No LaTeX</span>
+            </div>
+            <h1 className="font-semibold tracking-tight text-ink-900 text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-5">
+              Convert Jupyter Notebook to PDF Online{' '}
+              <span className="text-accent-500">— Free, No LaTeX</span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            <p className="text-ink-500 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
               Export your Jupyter Notebook as a PDF without installing LaTeX. Runs entirely in your
               browser — private, fast, and free.
             </p>
@@ -74,47 +86,62 @@ export default function JupyterToPdfPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <TrustBadges />
 
-          <section className="py-12 prose prose-gray max-w-none">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+          <section className="py-12 max-w-none">
+            <h2 className="font-semibold text-2xl sm:text-3xl text-ink-900 mb-4">
               Jupyter Notebook to PDF — The Easy Way
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Exporting a Jupyter Notebook to PDF traditionally requires <code className="bg-gray-100 px-1 rounded text-sm">nbconvert</code> with
-              a working LaTeX installation. LaTeX installs can be gigabytes in size and frequently fail with cryptic
-              errors like <code className="bg-gray-100 px-1 rounded text-sm">LaTeX failed to compile</code> or
-              missing <code className="bg-gray-100 px-1 rounded text-sm">xelatex</code> binaries.
+            <p className="text-ink-700 leading-relaxed mb-4">
+              Exporting a Jupyter Notebook to PDF traditionally requires{' '}
+              <code className="font-mono bg-ink-100 px-1.5 py-0.5 rounded text-ink-900 text-sm border border-ink-200">
+                nbconvert
+              </code>{' '}
+              with a working LaTeX installation. LaTeX installs can be gigabytes in size and
+              frequently fail with cryptic errors like{' '}
+              <code className="font-mono bg-red-50 px-1.5 py-0.5 rounded text-red-700 text-sm border border-red-200">
+                LaTeX failed to compile
+              </code>{' '}
+              or missing{' '}
+              <code className="font-mono bg-red-50 px-1.5 py-0.5 rounded text-red-700 text-sm border border-red-200">
+                xelatex
+              </code>{' '}
+              binaries.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              This tool takes a fundamentally different approach: it reads your .ipynb file in the browser,
-              renders each cell to HTML (using highlight.js for code, marked.js for markdown, and MathJax for
-              equations), then uses the browser&apos;s built-in print engine to produce a PDF. The result is a
-              clean, readable PDF with syntax-highlighted code, embedded charts, and rendered markdown.
+            <p className="text-ink-700 leading-relaxed mb-4">
+              This tool takes a fundamentally different approach: it reads your .ipynb file in the
+              browser, renders each cell to HTML (using highlight.js for code, marked.js for
+              markdown, and MathJax for equations), then uses the browser&apos;s built-in print
+              engine to produce a PDF. The result is a clean, readable PDF with syntax-highlighted
+              code, embedded charts, and rendered markdown.
             </p>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-ink-700 leading-relaxed">
               The converter runs 100% locally — your notebook content never leaves your computer.
             </p>
           </section>
 
           <section aria-labelledby="features-heading" className="py-12">
-            <h2 id="features-heading" className="text-2xl font-bold text-gray-900 text-center mb-8">
+            <h2
+              id="features-heading"
+              className="font-semibold text-2xl sm:text-3xl text-ink-900 text-center mb-8"
+            >
               What gets preserved in the PDF
             </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                'Code cells with syntax highlighting',
-                'Markdown cells with formatted text',
-                'matplotlib and seaborn charts (PNG/SVG)',
-                'pandas DataFrames as HTML tables',
-                'LaTeX math equations (via MathJax)',
-                'stdout/stderr output streams',
-                'Error tracebacks',
-                'Raw cell content',
-              ].map(item => (
-                <div key={item} className="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100">
-                  <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+            <div className="grid sm:grid-cols-2 gap-3">
+              {preservedItems.map(item => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 p-3 bg-white rounded-lg border border-ink-200"
+                >
+                  <svg
+                    className="w-5 h-5 text-accent-500 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                    aria-hidden="true"
+                  >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-sm text-gray-700">{item}</span>
+                  <span className="text-sm text-ink-700">{item}</span>
                 </div>
               ))}
             </div>
@@ -122,21 +149,35 @@ export default function JupyterToPdfPage() {
 
           <FAQSection questions={faqs} heading="Jupyter to PDF FAQ" />
 
-          <section className="py-10 border-t border-gray-200">
-            <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">More Tools</h2>
-            <div className="grid sm:grid-cols-3 gap-4">
-              <Link href="/" className="block p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all group">
-                <p className="font-semibold text-gray-800 group-hover:text-blue-700 text-sm">IPYNB to PDF</p>
-                <p className="text-xs text-gray-500 mt-1">Convert .ipynb to PDF</p>
-              </Link>
-              <Link href="/ipynb-to-html" className="block p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all group">
-                <p className="font-semibold text-gray-800 group-hover:text-blue-700 text-sm">IPYNB to HTML</p>
-                <p className="text-xs text-gray-500 mt-1">Export as standalone HTML</p>
-              </Link>
-              <Link href="/ipynb-to-python" className="block p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all group">
-                <p className="font-semibold text-gray-800 group-hover:text-blue-700 text-sm">IPYNB to Python</p>
-                <p className="text-xs text-gray-500 mt-1">Extract code as .py file</p>
-              </Link>
+          <section className="py-10 border-t border-ink-200">
+            <h2 className="font-semibold text-xl text-ink-900 mb-6 text-center">
+              More Jupyter Notebook Converters
+            </h2>
+            <div className="grid sm:grid-cols-3 gap-3">
+              {[
+                { href: '/', label: 'IPYNB to PDF', desc: 'Convert .ipynb to PDF' },
+                {
+                  href: '/ipynb-to-html',
+                  label: 'IPYNB to HTML',
+                  desc: 'Export as standalone HTML',
+                },
+                {
+                  href: '/ipynb-to-python',
+                  label: 'IPYNB to Python',
+                  desc: 'Extract code as .py file',
+                },
+              ].map(tool => (
+                <Link
+                  key={tool.href}
+                  href={tool.href}
+                  className="block p-4 rounded-xl border border-ink-200 bg-white hover:border-accent-500 hover:bg-accent-50 transition-all group"
+                >
+                  <p className="font-mono font-medium text-ink-900 group-hover:text-accent-700 text-xs transition-colors">
+                    {tool.label}
+                  </p>
+                  <p className="text-xs text-ink-500 mt-1">{tool.desc}</p>
+                </Link>
+              ))}
             </div>
           </section>
         </div>

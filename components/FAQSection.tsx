@@ -12,8 +12,12 @@ interface FAQSectionProps {
   heading?: string;
 }
 
-export default function FAQSection({ questions, heading = 'Frequently Asked Questions' }: FAQSectionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+export default function FAQSection({
+  questions,
+  heading = 'Frequently Asked Questions',
+}: FAQSectionProps) {
+  // Default first item open — helps SEO snippet extraction and signals content presence
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -34,23 +38,27 @@ export default function FAQSection({ questions, heading = 'Frequently Asked Ques
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <h2 id="faq-heading" className="text-2xl font-bold text-gray-900 mb-8 text-center">
+      <h2 id="faq-heading" className="text-2xl font-semibold text-ink-900 mb-8 text-center">
         {heading}
       </h2>
-      <div className="max-w-3xl mx-auto divide-y divide-gray-200 border border-gray-200 rounded-xl overflow-hidden">
+      <div className="max-w-3xl mx-auto divide-y divide-ink-200 border border-ink-200 rounded-xl overflow-hidden bg-white">
         {questions.map((item, idx) => {
           const isOpen = openIndex === idx;
           return (
-            <div key={idx} className="bg-white">
+            <div key={idx}>
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? null : idx)}
                 aria-expanded={isOpen}
-                className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left hover:bg-ink-50 transition-colors"
               >
-                <span className="font-medium text-gray-900 text-sm sm:text-base">{item.question}</span>
+                <span className="font-medium text-ink-900 text-sm sm:text-base">
+                  {item.question}
+                </span>
                 <svg
-                  className={`flex-shrink-0 w-5 h-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                  className={`flex-shrink-0 w-5 h-5 text-ink-400 transition-transform duration-200 ${
+                    isOpen ? 'rotate-180 text-accent-600' : ''
+                  }`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -62,7 +70,7 @@ export default function FAQSection({ questions, heading = 'Frequently Asked Ques
               </button>
               {isOpen && (
                 <div className="px-6 pb-4">
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{item.answer}</p>
+                  <p className="text-ink-700 text-sm sm:text-base leading-relaxed">{item.answer}</p>
                 </div>
               )}
             </div>

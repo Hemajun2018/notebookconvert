@@ -13,6 +13,7 @@ export default function ConvertButton({
   loading,
   label = 'Convert',
 }: ConvertButtonProps) {
+  const isIdle = !disabled && !loading;
   return (
     <button
       type="button"
@@ -22,21 +23,28 @@ export default function ConvertButton({
       className={[
         'w-full flex items-center justify-center gap-2',
         'px-6 py-3.5 rounded-xl font-semibold text-white text-base',
-        'transition-all duration-150 shadow-sm',
-        disabled || loading
-          ? 'bg-gray-300 cursor-not-allowed shadow-none'
-          : 'bg-blue-600 hover:bg-blue-700 active:scale-[0.98] shadow-blue-200',
+        'transition-colors duration-150',
+        isIdle
+          ? 'bg-accent-600 hover:bg-accent-700 shadow-sm'
+          : 'bg-ink-200 text-ink-400 cursor-not-allowed',
       ].join(' ')}
     >
       {loading ? (
         <>
           <svg
-            className="animate-spin w-5 h-5 text-white"
+            className="animate-spin w-5 h-5 text-ink-400"
             fill="none"
             viewBox="0 0 24 24"
             aria-hidden="true"
           >
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            />
             <path
               className="opacity-75"
               fill="currentColor"
