@@ -56,8 +56,8 @@ export default function FAQSection({
                   {item.question}
                 </span>
                 <svg
-                  className={`flex-shrink-0 w-5 h-5 text-ink-400 transition-transform duration-200 ${
-                    isOpen ? 'rotate-180 text-accent-600' : ''
+                  className={`flex-shrink-0 w-5 h-5 transition-transform duration-200 ${
+                    isOpen ? 'rotate-180 text-accent-600' : 'text-ink-400'
                   }`}
                   fill="none"
                   viewBox="0 0 24 24"

@@ -179,17 +179,10 @@ export default function HomePage() {
                 </ul>
               </div>
 
-              {/* Right: Converter wrapped in an In[1]: notebook cell frame */}
+              {/* Right: Converter (card variant provides its own In [1]: frame,
+                  and updates the filename reactively when a file is dropped). */}
               <div className="lg:col-span-5">
-                <div className="rounded-xl border border-ink-200 bg-white shadow-cell overflow-hidden">
-                  <div className="flex items-center justify-between px-4 py-2 border-b border-ink-200 bg-ink-50">
-                    <span className="font-mono text-xs text-accent-600">In [1]:</span>
-                    <span className="font-mono text-xs text-ink-500">notebook.ipynb</span>
-                  </div>
-                  <div className="p-5 sm:p-6">
-                    <Converter defaultFormat="pdf" variant="bare" />
-                  </div>
-                </div>
+                <Converter defaultFormat="pdf" variant="card" />
               </div>
             </div>
           </div>
