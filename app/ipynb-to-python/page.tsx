@@ -48,22 +48,45 @@ const faqs: FAQItem[] = [
   },
 ];
 
+const useCases = [
+  {
+    title: 'Production deployment',
+    desc: 'Run your analysis as a scheduled script or in a pipeline.',
+  },
+  {
+    title: 'Version control',
+    desc: 'Git diffs are much cleaner for .py files than .ipynb JSON.',
+  },
+  { title: 'Code review', desc: 'Share pure code with teammates who prefer .py files.' },
+  { title: 'Testing', desc: 'Run your notebook logic through a test framework like pytest.' },
+  {
+    title: 'Refactoring',
+    desc: 'Move functions and classes from a notebook into a proper module.',
+  },
+  {
+    title: 'IDE integration',
+    desc: 'Edit your notebook code in your preferred IDE with full tooling.',
+  },
+];
+
 export default function IpynbToPythonPage() {
   return (
     <>
       <Header />
       <main>
-        <section className="bg-gradient-to-b from-blue-50 to-white py-14 px-4 sm:px-6 text-center">
-          <div className="max-w-3xl mx-auto">
-            <p className="inline-block text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-100 rounded-full px-3 py-1 mb-4">
+        <section className="relative overflow-hidden bg-gradient-to-b from-accent-50 via-white to-white border-b border-ink-200">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 sm:py-20 text-center">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-700 bg-accent-100 border border-accent-200 rounded-full px-3 py-1.5 mb-6">
+              <span className="w-1.5 h-1.5 bg-accent-500 rounded-full" aria-hidden="true" />
               Browser-Only · No Upload · Free
-            </p>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-              Free IPYNB to Python (.py) Converter Online
+            </div>
+            <h1 className="font-semibold tracking-tight text-ink-900 text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-5">
+              Free IPYNB to Python{' '}
+              <span className="text-accent-500">(.py) Converter</span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-              Extract all Python code from your Jupyter Notebook into a clean .py script.
-              No installation, no upload — runs entirely in your browser.
+            <p className="text-ink-500 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+              Extract all Python code from your Jupyter Notebook into a clean .py script. No
+              installation, no upload — runs entirely in your browser.
             </p>
             <Converter defaultFormat="python" />
           </div>
@@ -72,42 +95,41 @@ export default function IpynbToPythonPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <TrustBadges />
 
-          <section className="py-12 prose prose-gray max-w-none">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+          <section className="py-12 max-w-none">
+            <h2 className="font-semibold text-2xl sm:text-3xl text-ink-900 mb-4">
               Extract Python Code from Jupyter Notebooks
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Jupyter Notebooks are excellent for interactive data exploration, but for production use, CI/CD
-              pipelines, or running your analysis as a script, you often need a clean Python file. Manually
-              copying code cells is tedious and error-prone.
+            <p className="text-ink-700 leading-relaxed mb-4">
+              Jupyter Notebooks are excellent for interactive data exploration, but for production
+              use, CI/CD pipelines, or running your analysis as a script, you often need a clean
+              Python file. Manually copying code cells is tedious and error-prone.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              This tool automatically extracts all code cells from your .ipynb file and combines them into a
-              single .py script. Markdown cells become Python comments, preserving the narrative structure of
-              your notebook. The result is a clean Python file you can run, import, or check into version
-              control.
+            <p className="text-ink-700 leading-relaxed mb-4">
+              This tool automatically extracts all code cells from your .ipynb file and combines
+              them into a single .py script. Markdown cells become Python comments, preserving the
+              narrative structure of your notebook. The result is a clean Python file you can run,
+              import, or check into version control.
             </p>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-ink-700 leading-relaxed">
               Everything runs in your browser — your notebook code never leaves your computer.
             </p>
           </section>
 
           <section aria-labelledby="use-cases-heading" className="py-12">
-            <h2 id="use-cases-heading" className="text-2xl font-bold text-gray-900 text-center mb-8">
-              When to convert IPYNB to Python
+            <h2
+              id="use-cases-heading"
+              className="font-semibold text-2xl sm:text-3xl text-ink-900 text-center mb-8"
+            >
+              When to Convert IPYNB to Python
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                { title: 'Production deployment', desc: 'Run your analysis as a scheduled script or in a pipeline.' },
-                { title: 'Version control', desc: 'Git diffs are much cleaner for .py files than .ipynb JSON.' },
-                { title: 'Code review', desc: 'Share pure code with teammates who prefer .py files.' },
-                { title: 'Testing', desc: 'Run your notebook logic through a test framework like pytest.' },
-                { title: 'Refactoring', desc: 'Move functions and classes from a notebook into a proper module.' },
-                { title: 'IDE integration', desc: 'Edit your notebook code in your preferred IDE with full tooling.' },
-              ].map(item => (
-                <div key={item.title} className="p-4 bg-white rounded-xl border border-gray-200">
-                  <h3 className="font-semibold text-gray-900 text-sm mb-1">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
+              {useCases.map(item => (
+                <div
+                  key={item.title}
+                  className="p-4 bg-white rounded-xl border border-ink-200 hover:border-accent-200 hover:shadow-cell transition-all"
+                >
+                  <h3 className="font-semibold text-ink-900 text-sm mb-1">{item.title}</h3>
+                  <p className="text-sm text-ink-500">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -115,21 +137,27 @@ export default function IpynbToPythonPage() {
 
           <FAQSection questions={faqs} heading="IPYNB to Python FAQ" />
 
-          <section className="py-10 border-t border-gray-200">
-            <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">More Tools</h2>
-            <div className="grid sm:grid-cols-3 gap-4">
-              <Link href="/" className="block p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all group">
-                <p className="font-semibold text-gray-800 group-hover:text-blue-700 text-sm">IPYNB to PDF</p>
-                <p className="text-xs text-gray-500 mt-1">Export notebook as PDF</p>
-              </Link>
-              <Link href="/jupyter-to-pdf" className="block p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all group">
-                <p className="font-semibold text-gray-800 group-hover:text-blue-700 text-sm">Jupyter to PDF</p>
-                <p className="text-xs text-gray-500 mt-1">No LaTeX needed</p>
-              </Link>
-              <Link href="/ipynb-to-html" className="block p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all group">
-                <p className="font-semibold text-gray-800 group-hover:text-blue-700 text-sm">IPYNB to HTML</p>
-                <p className="text-xs text-gray-500 mt-1">Export as HTML file</p>
-              </Link>
+          <section className="py-10 border-t border-ink-200">
+            <h2 className="font-semibold text-xl text-ink-900 mb-6 text-center">
+              More Jupyter Notebook Converters
+            </h2>
+            <div className="grid sm:grid-cols-3 gap-3">
+              {[
+                { href: '/', label: 'IPYNB to PDF', desc: 'Export notebook as PDF' },
+                { href: '/jupyter-to-pdf', label: 'Jupyter to PDF', desc: 'No LaTeX needed' },
+                { href: '/ipynb-to-html', label: 'IPYNB to HTML', desc: 'Export as HTML file' },
+              ].map(tool => (
+                <Link
+                  key={tool.href}
+                  href={tool.href}
+                  className="block p-4 rounded-xl border border-ink-200 bg-white hover:border-accent-500 hover:bg-accent-50 transition-all group"
+                >
+                  <p className="font-mono font-medium text-ink-900 group-hover:text-accent-700 text-xs transition-colors">
+                    {tool.label}
+                  </p>
+                  <p className="text-xs text-ink-500 mt-1">{tool.desc}</p>
+                </Link>
+              ))}
             </div>
           </section>
         </div>
