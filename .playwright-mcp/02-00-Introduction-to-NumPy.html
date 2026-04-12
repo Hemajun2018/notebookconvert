@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>02.00-Introduction-to-NumPy</title>
+  <style>
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+          line-height: 1.6;
+          color: #1a202c;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 2rem 1rem;
+          background: #fff;
+        }
+        .notebook-markdown-cell h1 { font-size: 2rem; font-weight: 700; margin: 1.5rem 0 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .notebook-markdown-cell h2 { font-size: 1.5rem; font-weight: 600; margin: 1.25rem 0 0.75rem; }
+        .notebook-markdown-cell h3 { font-size: 1.25rem; font-weight: 600; margin: 1rem 0 0.5rem; }
+        .notebook-markdown-cell p { margin: 0.75rem 0; }
+        .notebook-markdown-cell ul, .notebook-markdown-cell ol { padding-left: 1.5rem; margin: 0.75rem 0; }
+        .notebook-markdown-cell li { margin: 0.25rem 0; }
+        .notebook-markdown-cell code { background: #f1f5f9; padding: 0.125rem 0.375rem; border-radius: 3px; font-size: 0.875em; font-family: 'SFMono-Regular', Consolas, monospace; }
+        .notebook-markdown-cell pre { background: #f6f8fa; border: 1px solid #e2e8f0; border-radius: 6px; padding: 1rem; overflow-x: auto; }
+        .notebook-markdown-cell pre code { background: none; padding: 0; font-size: 0.875rem; }
+        .notebook-markdown-cell blockquote { border-left: 4px solid #3b82f6; padding-left: 1rem; color: #6b7280; margin: 1rem 0; }
+        .notebook-markdown-cell table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+        .notebook-markdown-cell th, .notebook-markdown-cell td { border: 1px solid #e2e8f0; padding: 0.5rem 0.75rem; text-align: left; }
+        .notebook-markdown-cell th { background: #f8fafc; font-weight: 600; }
+        .notebook-markdown-cell tr:nth-child(even) { background: #f8fafc; }
+        .notebook-markdown-cell a { color: #2563eb; text-decoration: underline; }
+        .notebook-markdown-cell img { max-width: 100%; height: auto; border-radius: 4px; }
+        .notebook-output { margin: 0.5rem 0; overflow-x: auto; }
+        .notebook-output img { max-width: 100%; height: auto; }
+        .notebook-output table { border-collapse: collapse; font-size: 0.875rem; }
+        .notebook-output th, .notebook-output td { border: 1px solid #e2e8f0; padding: 0.375rem 0.625rem; }
+        .notebook-output th { background: #f8fafc; }
+        .notebook-error { background: #fff5f5; border-left: 4px solid #fc8181; padding: 0.75rem; font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.8125rem; white-space: pre-wrap; overflow-x: auto; border-radius: 0 4px 4px 0; color: #c53030; }
+        .notebook-stream { background: #f7fafc; border-left: 4px solid #a0aec0; padding: 0.75rem; font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.8125rem; white-space: pre-wrap; overflow-x: auto; border-radius: 0 4px 4px 0; }
+        .notebook-stderr { background: #fffbeb; border-left-color: #f59e0b; }
+        @media print {
+          body { max-width: 100%; padding: 0; }
+          pre { white-space: pre-wrap; word-break: break-all; }
+        }
+      </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" />
+  
+</head>
+<body>
+  <div id="notebook">
+    <div class="notebook-cell notebook-markdown-cell" style="margin-bottom:1.5rem;padding:0 0.5rem;"><h1>Introduction to NumPy</h1>
+<p>This part of the book, along with <a href="03.00-Introduction-to-Pandas.ipynb">Part 3</a>, outlines techniques for effectively loading, storing, and manipulating in-memory data in Python.
+The topic is very broad: datasets can come from a wide range of sources and in a wide range of formats, including collections of documents, collections of images, collections of sound clips, collections of numerical measurements, or nearly anything else.
+Despite this apparent heterogeneity, many datasets can be represented fundamentally as arrays of numbers.</p>
+<p>For example, images—particularly digital images—can be thought of as simply two-dimensional arrays of numbers representing pixel brightness across the area.
+Sound clips can be thought of as one-dimensional arrays of intensity versus time.
+Text can be converted in various ways into numerical representations, such as binary digits representing the frequency of certain words or pairs of words.
+No matter what the data is, the first step in making it analyzable will be to transform it into arrays of numbers.
+(We will discuss some specific examples of this process in <a href="05.04-Feature-Engineering.ipynb">Feature Engineering</a>.)</p>
+<p>For this reason, efficient storage and manipulation of numerical arrays is absolutely fundamental to the process of doing data science.
+We&#39;ll now take a look at the specialized tools that Python has for handling such numerical arrays: the NumPy package and the Pandas package (discussed in <a href="03.00-Introduction-to-Pandas.ipynb">Part 3</a>).</p>
+<p>This part of the book will cover NumPy in detail. NumPy (short for <em>Numerical Python</em>) provides an efficient interface to store and operate on dense data buffers.
+In some ways, NumPy arrays are like Python&#39;s built-in <code>list</code> type, but NumPy arrays provide much more efficient storage and data operations as the arrays grow larger in size.
+NumPy arrays form the core of nearly the entire ecosystem of data science tools in Python, so time spent learning to use NumPy effectively will be valuable no matter what aspect of data science interests you.</p>
+<p>If you followed the advice outlined in the Preface and installed the Anaconda stack, you already have NumPy installed and ready to go.
+If you&#39;re more the do-it-yourself type, you can go to <a href="http://www.numpy.org/">http://www.numpy.org/</a> and follow the installation instructions found there.
+Once you do, you can import NumPy and double-check the version:</p>
+</div>
+
+<div class="notebook-cell notebook-code-cell" style="margin-bottom:1.5rem;">
+  <div style="display:flex;align-items:flex-start;gap:0.5rem;">
+    <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:1rem;min-width:2.5rem;text-align:right;user-select:none;">In [1]:</span>
+    <pre style="flex:1;margin:0;"><code class="hljs language-python" style="border-radius:6px;padding:1rem;display:block;overflow-x:auto;background:#f6f8fa;font-size:0.875rem;"><span class="hljs-keyword">import</span> numpy
+numpy.__version__</code></pre>
+  </div>
+</div><div style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.25rem;">
+                <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:0.5rem;min-width:2.5rem;text-align:right;user-select:none;">Out:</span>
+                <div style="flex:1;"><div class="notebook-output"><pre class="notebook-stream">&#039;1.21.2&#039;</pre></div></div>
+              </div>
+<div class="notebook-cell notebook-markdown-cell" style="margin-bottom:1.5rem;padding:0 0.5rem;"><p>For the pieces of the package discussed here, I&#39;d recommend NumPy version 1.8 or later.
+By convention, you&#39;ll find that most people in the SciPy/PyData world will import NumPy using <code>np</code> as an alias:</p>
+</div>
+
+<div class="notebook-cell notebook-code-cell" style="margin-bottom:1.5rem;">
+  <div style="display:flex;align-items:flex-start;gap:0.5rem;">
+    <span style="color:#6b7280;font-size:0.75rem;font-family:monospace;padding-top:1rem;min-width:2.5rem;text-align:right;user-select:none;">In [2]:</span>
+    <pre style="flex:1;margin:0;"><code class="hljs language-python" style="border-radius:6px;padding:1rem;display:block;overflow-x:auto;background:#f6f8fa;font-size:0.875rem;"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code></pre>
+  </div>
+</div>
+<div class="notebook-cell notebook-markdown-cell" style="margin-bottom:1.5rem;padding:0 0.5rem;"><p>Throughout this chapter, and indeed the rest of the book, you&#39;ll find that this is the way we will import and use NumPy.</p>
+</div>
+<div class="notebook-cell notebook-markdown-cell" style="margin-bottom:1.5rem;padding:0 0.5rem;"><h2>Reminder About Built-in Documentation</h2>
+<p>As you read through this part of the book, don&#39;t forget that IPython gives you the ability to quickly explore the contents of a package (by using the tab completion feature), as well as the documentation of various functions (using the <code>?</code> character). For a refresher on these, refer back to <a href="01.01-Help-And-Documentation.ipynb">Help and Documentation in IPython</a>.</p>
+<p>For example, to display all the contents of the NumPy namespace, you can type this:</p>
+<pre><code class="language-ipython">In [3]: np.&lt;TAB&gt;
+</code></pre>
+<p>And to display NumPy&#39;s built-in documentation, you can use this:</p>
+<pre><code class="language-ipython">In [4]: np?
+</code></pre>
+<p>More detailed documentation, along with tutorials and other resources, can be found at <a href="http://www.numpy.org">http://www.numpy.org</a>.</p>
+</div>
+  </div>
+</body>
+</html>

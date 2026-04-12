@@ -1,0 +1,233 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation "Main navigation" [ref=e3]:
+      - link "notebookconvert.com logo notebookconvert.com // .ipynb → .pdf · .html · .py" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "notebookconvert.com logo" [ref=e5]
+        - generic [ref=e6]: notebookconvert.com
+        - generic [ref=e7]: // .ipynb → .pdf · .html · .py
+      - generic [ref=e8]:
+        - button "Tools" [ref=e10] [cursor=pointer]:
+          - text: Tools
+          - img [ref=e11]
+        - link "Blog" [ref=e13] [cursor=pointer]:
+          - /url: /blog
+  - main [ref=e14]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]: Free · Browser-based · No nbconvert needed
+        - heading "Free IPYNB to PDF Converter Online — No LaTeX Required" [level=1] [ref=e21]
+        - paragraph [ref=e22]: Convert Jupyter Notebook files to PDF, HTML, or Python directly in your browser. No installation, no server, no signup. Your files stay private.
+        - list [ref=e23]:
+          - listitem [ref=e24]:
+            - img [ref=e25]
+            - text: No upload
+          - listitem [ref=e27]:
+            - img [ref=e28]
+            - text: No LaTeX
+          - listitem [ref=e30]:
+            - img [ref=e31]
+            - text: No signup
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]: "In [1]:"
+          - generic "02.00-Introduction-to-NumPy.ipynb" [ref=e260]
+        - generic [ref=e39]:
+          - button "Drop your .ipynb file here or click to browse" [ref=e41] [cursor=pointer]:
+            - img [ref=e261]
+            - generic [ref=e46]:
+              - paragraph [ref=e47]: 02.00-Introduction-to-NumPy.ipynb
+              - paragraph [ref=e49]: Click to choose a different file
+          - group "Export format" [ref=e50]:
+            - generic [ref=e51]: Export format
+            - radiogroup [ref=e52]:
+              - generic [ref=e53] [cursor=pointer]:
+                - radio "Export as PDF" [ref=e54]
+                - img [ref=e55]
+                - generic [ref=e57]:
+                  - paragraph [ref=e58]: PDF
+                  - paragraph [ref=e59]: Print-ready
+                  - paragraph [ref=e60]: .pdf
+              - generic [ref=e64] [cursor=pointer]:
+                - radio "Export as HTML" [checked] [ref=e65]
+                - img [ref=e66]
+                - generic [ref=e68]:
+                  - paragraph [ref=e69]: HTML
+                  - paragraph [ref=e70]: Standalone file
+                  - paragraph [ref=e71]: .html
+                - img [ref=e272]
+              - generic [ref=e72] [cursor=pointer]:
+                - radio "Export as Python" [ref=e73]
+                - img [ref=e74]
+                - generic [ref=e76]:
+                  - paragraph [ref=e77]: Python
+                  - paragraph [ref=e78]: Code cells only
+                  - paragraph [ref=e79]: .py
+          - status [ref=e275]:
+            - paragraph [ref=e276]: Download started
+            - paragraph [ref=e277]: Your file has been generated and downloaded.
+          - button "Convert to HTML" [ref=e274] [cursor=pointer]:
+            - img [ref=e81]
+            - generic [ref=e83]: Convert to HTML
+    - generic [ref=e84]:
+      - region "Trust and privacy signals" [ref=e85]:
+        - list [ref=e86]:
+          - listitem [ref=e87]: Files stay in your browser
+          - listitem [ref=e89]: No LaTeX installation
+          - listitem [ref=e91]: No signup · No limits
+      - region "Why Convert IPYNB to PDF with Us?" [ref=e93]:
+        - heading "Why Convert IPYNB to PDF with Us?" [level=2] [ref=e94]
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - img [ref=e99]
+              - generic [ref=e101]: "01"
+            - heading "No LaTeX Installation" [level=3] [ref=e102]
+            - paragraph [ref=e103]: Traditional nbconvert PDF export requires a full LaTeX distribution. We use browser printing — zero dependencies, zero setup.
+          - generic [ref=e104]:
+            - generic [ref=e105]:
+              - img [ref=e107]
+              - generic [ref=e109]: "02"
+            - heading "Complete Privacy" [level=3] [ref=e110]
+            - paragraph [ref=e111]: Conversion happens entirely client-side. We never see your code, data, or outputs. No analytics on your files.
+          - generic [ref=e112]:
+            - generic [ref=e113]:
+              - img [ref=e115]
+              - generic [ref=e117]: "03"
+            - heading "All Output Types" [level=3] [ref=e118]
+            - paragraph [ref=e119]: Preserves matplotlib plots, pandas DataFrames, HTML output, stdout/stderr streams, error tracebacks, and equations.
+      - region "How to Convert Jupyter Notebook to PDF in 3 Steps" [ref=e120]:
+        - generic [ref=e121]:
+          - heading "How to Convert Jupyter Notebook to PDF in 3 Steps" [level=2] [ref=e122]
+          - generic [ref=e123]:
+            - generic [ref=e124]:
+              - generic [ref=e125]: "In [1]:"
+              - heading "Upload your .ipynb file" [level=3] [ref=e126]
+              - paragraph [ref=e127]: Drag and drop your Jupyter Notebook or click to browse. Works with any notebook in nbformat 4.
+            - generic [ref=e128]:
+              - generic [ref=e129]: "In [2]:"
+              - heading "Choose PDF, HTML, or Python" [level=3] [ref=e130]
+              - paragraph [ref=e131]: Select PDF for printing, HTML for sharing, or Python to extract code cells as a .py file.
+            - generic [ref=e132]:
+              - generic [ref=e133]: "In [3]:"
+              - heading "Download instantly" [level=3] [ref=e134]
+              - paragraph [ref=e135]: For PDF, a print dialog opens — select "Save as PDF". For HTML and Python, the file downloads automatically.
+      - generic [ref=e136]:
+        - heading "Convert Jupyter Notebooks to PDF Without LaTeX" [level=2] [ref=e137]
+        - paragraph [ref=e138]:
+          - text: The standard way to export a Jupyter Notebook to PDF is
+          - code [ref=e139]: jupyter nbconvert --to pdf
+          - text: ", which requires a full LaTeX installation (typically TeXLive or MiKTeX — several gigabytes). For many data scientists and researchers, this is a significant barrier. If you've seen errors like"
+          - code [ref=e140]: xelatex not found
+          - text: or
+          - code [ref=e141]: pdflatex failed
+          - text: ", you're not alone."
+        - paragraph [ref=e142]: "notebookconvert.com takes a different approach: it parses your .ipynb file directly in the browser, renders all cells (code, markdown, outputs, charts) to HTML, and opens the browser's native print dialog. Modern browsers can save any page as a high-quality PDF — no LaTeX required. The result is a clean, readable PDF that preserves your code syntax highlighting, matplotlib figures, pandas DataFrames, and LaTeX equations (via MathJax)."
+        - paragraph [ref=e143]: Because everything runs client-side, your notebooks are completely private. There's no server, no upload, and no account required. The tool is completely free with no usage limits.
+      - region "nbconvert vs notebookconvert.com" [ref=e144]:
+        - heading "nbconvert vs notebookconvert.com" [level=2] [ref=e145]
+        - table [ref=e147]:
+          - rowgroup [ref=e148]:
+            - row "Feature nbconvert (LaTeX) notebookconvert.com" [ref=e149]:
+              - columnheader "Feature" [ref=e150]
+              - columnheader "nbconvert (LaTeX)" [ref=e151]
+              - columnheader "notebookconvert.com" [ref=e152]
+          - rowgroup [ref=e153]:
+            - row "LaTeX required Yes (2–4 GB install) No" [ref=e154]:
+              - cell "LaTeX required" [ref=e155]
+              - cell "Yes (2–4 GB install)" [ref=e156]
+              - cell "No" [ref=e157]
+            - row "Installation needed Python + LaTeX toolchain None — runs in browser" [ref=e158]:
+              - cell "Installation needed" [ref=e159]
+              - cell "Python + LaTeX toolchain" [ref=e160]
+              - cell "None — runs in browser" [ref=e161]
+            - row "Works offline Yes Yes (after first load)" [ref=e162]:
+              - cell "Works offline" [ref=e163]
+              - cell "Yes" [ref=e164]
+              - cell "Yes (after first load)" [ref=e165]
+            - row "Preserves charts Yes Yes" [ref=e166]:
+              - cell "Preserves charts" [ref=e167]
+              - cell "Yes" [ref=e168]
+              - cell "Yes" [ref=e169]
+            - row "Preserves HTML outputs Partial Yes" [ref=e170]:
+              - cell "Preserves HTML outputs" [ref=e171]
+              - cell "Partial" [ref=e172]
+              - cell "Yes" [ref=e173]
+            - row "Math equations Yes (native LaTeX) Yes (MathJax)" [ref=e174]:
+              - cell "Math equations" [ref=e175]
+              - cell "Yes (native LaTeX)" [ref=e176]
+              - cell "Yes (MathJax)" [ref=e177]
+            - row "Privacy Local 100% local, zero upload" [ref=e178]:
+              - cell "Privacy" [ref=e179]
+              - cell "Local" [ref=e180]
+              - cell "100% local, zero upload" [ref=e181]
+            - row "Cost Free Free" [ref=e182]:
+              - cell "Cost" [ref=e183]
+              - cell "Free" [ref=e184]
+              - cell "Free" [ref=e185]
+            - row "Speed Slow (LaTeX compile) Fast (browser render)" [ref=e186]:
+              - cell "Speed" [ref=e187]
+              - cell "Slow (LaTeX compile)" [ref=e188]
+              - cell "Fast (browser render)" [ref=e189]
+      - region "Frequently Asked Questions" [ref=e190]:
+        - heading "Frequently Asked Questions" [level=2] [ref=e191]
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - button "How do I convert an IPYNB file to PDF?" [expanded] [ref=e194] [cursor=pointer]:
+              - generic [ref=e195]: How do I convert an IPYNB file to PDF?
+              - img [ref=e196]
+            - paragraph [ref=e199]: Upload your .ipynb file using the drop zone above, select PDF as the export format, and click "Convert to PDF". A print dialog will open — choose "Save as PDF" as the destination and click Save.
+          - button "Do I need to install LaTeX to convert Jupyter Notebook to PDF?" [ref=e201] [cursor=pointer]:
+            - generic [ref=e202]: Do I need to install LaTeX to convert Jupyter Notebook to PDF?
+            - img [ref=e203]
+          - button "Are my notebook files uploaded to a server?" [ref=e206] [cursor=pointer]:
+            - generic [ref=e207]: Are my notebook files uploaded to a server?
+            - img [ref=e208]
+          - button "What output types are supported?" [ref=e211] [cursor=pointer]:
+            - generic [ref=e212]: What output types are supported?
+            - img [ref=e213]
+          - button "Does it support math equations and LaTeX in markdown cells?" [ref=e216] [cursor=pointer]:
+            - generic [ref=e217]: Does it support math equations and LaTeX in markdown cells?
+            - img [ref=e218]
+          - button "What is the maximum file size?" [ref=e221] [cursor=pointer]:
+            - generic [ref=e222]: What is the maximum file size?
+            - img [ref=e223]
+          - button "Can I convert a Jupyter Notebook to HTML?" [ref=e226] [cursor=pointer]:
+            - generic [ref=e227]: Can I convert a Jupyter Notebook to HTML?
+            - img [ref=e228]
+          - button "Can I extract just the Python code from a notebook?" [ref=e231] [cursor=pointer]:
+            - generic [ref=e232]: Can I extract just the Python code from a notebook?
+            - img [ref=e233]
+      - region "More Jupyter Notebook Converters" [ref=e235]:
+        - heading "More Jupyter Notebook Converters" [level=2] [ref=e236]
+        - generic [ref=e237]:
+          - link "Jupyter Notebook to PDF Convert .ipynb to PDF online" [ref=e238] [cursor=pointer]:
+            - /url: /jupyter-to-pdf
+            - paragraph [ref=e239]: Jupyter Notebook to PDF
+            - paragraph [ref=e240]: Convert .ipynb to PDF online
+          - link "IPYNB to HTML Export notebook as standalone HTML" [ref=e241] [cursor=pointer]:
+            - /url: /ipynb-to-html
+            - paragraph [ref=e242]: IPYNB to HTML
+            - paragraph [ref=e243]: Export notebook as standalone HTML
+          - link "IPYNB to Python Extract code cells as .py file" [ref=e244] [cursor=pointer]:
+            - /url: /ipynb-to-python
+            - paragraph [ref=e245]: IPYNB to Python
+            - paragraph [ref=e246]: Extract code cells as .py file
+      - region "Featured on" [ref=e247]:
+        - paragraph [ref=e248]: Featured on
+        - link "Featured on Fazier" [ref=e250] [cursor=pointer]:
+          - /url: https://fazier.com/launches/notebookconvert.com
+          - img "Featured on Fazier" [ref=e251]
+  - contentinfo [ref=e252]:
+    - generic [ref=e253]:
+      - paragraph [ref=e254]:
+        - text: © 2026
+        - link "notebookconvert.com" [ref=e255] [cursor=pointer]:
+          - /url: /
+        - text: — Free online Jupyter Notebook converter
+      - navigation "Footer navigation" [ref=e256]:
+        - link "Blog" [ref=e257] [cursor=pointer]:
+          - /url: /blog
+        - link "Privacy Policy" [ref=e258] [cursor=pointer]:
+          - /url: /privacy
+  - alert [ref=e259]

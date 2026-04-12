@@ -117,10 +117,10 @@ export default function HomePage() {
       <main>
         {/* ─── Hero ─── */}
         <section className="relative overflow-hidden bg-gradient-to-b from-accent-50 via-white to-white border-b border-ink-200">
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20 lg:py-24">
-            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-14 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-24">
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 lg:items-start">
               {/* Left: copy */}
-              <div className="lg:col-span-7">
+              <div className="lg:col-span-7 lg:pt-10">
                 <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-700 bg-accent-100 border border-accent-200 rounded-full px-3 py-1.5 mb-6">
                   <span className="w-1.5 h-1.5 bg-accent-500 rounded-full" aria-hidden="true" />
                   Free · Browser-based · No nbconvert needed
