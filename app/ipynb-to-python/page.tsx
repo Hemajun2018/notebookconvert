@@ -75,20 +75,43 @@ export default function IpynbToPythonPage() {
       <Header />
       <main>
         <section className="relative overflow-hidden bg-gradient-to-b from-accent-50 via-white to-white border-b border-ink-200">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 sm:py-20 text-center">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-700 bg-accent-100 border border-accent-200 rounded-full px-3 py-1.5 mb-6">
-              <span className="w-1.5 h-1.5 bg-accent-500 rounded-full" aria-hidden="true" />
-              Browser-Only · No Upload · Free
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-14 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-24">
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 lg:items-start">
+              <div className="lg:col-span-7 lg:pt-10">
+                <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-700 bg-accent-100 border border-accent-200 rounded-full px-3 py-1.5 mb-6">
+                  <span className="w-1.5 h-1.5 bg-accent-500 rounded-full" aria-hidden="true" />
+                  Browser-Only · No Upload · Free
+                </div>
+                <h1 className="font-semibold tracking-tight text-ink-900 text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-5">
+                  Free IPYNB to Python{' '}
+                  <span className="text-accent-500">(.py) Converter</span>
+                </h1>
+                <p className="text-ink-500 text-base sm:text-lg max-w-xl leading-relaxed mb-6">
+                  Extract all Python code from your Jupyter Notebook into a clean .py script. No
+                  installation, no upload — runs entirely in your browser.
+                </p>
+                <ul className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs text-ink-500">
+                  {['No upload', 'No server', 'No signup'].map(item => (
+                    <li key={item} className="flex items-center gap-1.5">
+                      <svg
+                        className="w-3.5 h-3.5 text-accent-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={3}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="lg:col-span-5">
+                <Converter defaultFormat="python" variant="card" />
+              </div>
             </div>
-            <h1 className="font-semibold tracking-tight text-ink-900 text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-5">
-              Free IPYNB to Python{' '}
-              <span className="text-accent-500">(.py) Converter</span>
-            </h1>
-            <p className="text-ink-500 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-              Extract all Python code from your Jupyter Notebook into a clean .py script. No
-              installation, no upload — runs entirely in your browser.
-            </p>
-            <Converter defaultFormat="python" />
           </div>
         </section>
 
