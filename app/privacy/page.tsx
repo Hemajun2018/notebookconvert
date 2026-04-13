@@ -35,7 +35,7 @@ const sections = [
   },
   {
     title: 'Contact',
-    body: 'If you have questions about this privacy policy, please contact us through the website.',
+    body: 'If you have questions about this privacy policy, please contact us at contact@notebookconvert.com.',
   },
 ];
 

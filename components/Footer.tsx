@@ -23,6 +23,9 @@ export default function Footer() {
           <Link href="/privacy" className="hover:text-accent-600 transition-colors">
             Privacy Policy
           </Link>
+          <a href="mailto:contact@notebookconvert.com" className="hover:text-accent-600 transition-colors">
+            Contact
+          </a>
         </nav>
       </div>
     </footer>
